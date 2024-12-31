@@ -19,12 +19,12 @@ class AuthController(
         return authService.authLogin(loginRequest)
     }
 
-    @PostMapping("/SendCode")
+    @PostMapping("/sendCode")
     fun sendVerificationCode(@RequestParam email: String): Mono<Any> {
         return verificationService.sendVerificationEmailCode(email)
     }
 
-    @PostMapping("/VerifyCode")
+    @PostMapping("/verifyCode")
     fun verifyCode(@RequestBody request: VerifyCodeRequest): Mono<Any> {
         return verificationService.verifyCode(request.email, request.code , request.requestTime)
     }
